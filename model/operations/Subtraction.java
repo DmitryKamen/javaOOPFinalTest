@@ -12,7 +12,4 @@ public class Subtraction extends Operation {
     public double operation() {
         return (value1 - value2);
     }
-
-   
-    
 }

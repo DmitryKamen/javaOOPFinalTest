@@ -10,8 +10,11 @@ public class Division extends Operation {
 
     @Override
     public double operation() {
-        if (value2 == 0) return (value1);
-        return (value1 / value2);
+        if (value2 == 0) {
+            System.out.println(" Division is not possible ");
+            return -1;
+        }
+        return(value1 / value2);
     }
     
 }
