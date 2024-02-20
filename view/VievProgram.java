@@ -26,26 +26,27 @@ public class VievProgram implements Printer{
             System.out.println("Enter the second number: ");
             double value2 = scanner.nextDouble();
             double result;
+            String operator;
             switch (operation){
                 case '+':
                     result = controller.addited(value1, value2);
-                    System.out.println( " Result Addition = " + result );
-                    printRes(result);
+                    operator = "Addition ";
+                    printRes(operator,result);
                     break;
                 case '-':
                     result = controller.substracted(value1, value2);
-                    System.out.println( " Result Subtracton = " + result );
-                    printRes(result);
+                    operator = "Subtracton ";
+                    printRes(operator,result);
                     break;
                 case '*':
                     result = controller.multiplicated(value1, value2);
-                    System.out.println( " Result Multiplication = " + result );
-                    printRes(result);
+                    operator = "Multiplication ";
+                    printRes(operator,result);
                     break;
                 case '/':
                     result = controller.divised(value1, value2);
-                    System.out.println( " Result Division = " + result );
-                    printRes(result);
+                    operator = "Division ";
+                    printRes(operator,result);
                     break;
                 default:
                     System.out.println("Not a correct character");
