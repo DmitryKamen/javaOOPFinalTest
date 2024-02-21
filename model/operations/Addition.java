@@ -1,28 +1,29 @@
 package javaOOPFinalTest.model.operations;
 
-import javaOOPFinalTest.model.ComplexNum;
+import javaOOPFinalTest.model.ForHelpSerch;
 import javaOOPFinalTest.model.Operation;
 
-public class Addition extends Operation{
+public class Addition extends Operation implements ForHelpSerch{
     
-    public Addition(ComplexNum value1, ComplexNum value2) {
+    public Addition(String value1, String value2) {
         super(value1, value2);
     }
 
     @Override
-    public ComplexNum operation() {
-        double realPart = value1.getReal() + value2.getReal();
-        double imagPart = value1.getImaginary() + value2.getImaginary();
-        return new ComplexNum(realPart, imagPart);
+    public String operation() {
+        double res;
+        if(isComplex(value1) == true && isComplex(value2) == true) {
+            res = replaseDouble(value1) + replaseDouble(value2);
+            return res + "i";
+        }
+        else if (isComplex(value1) == true && isComplex(value2) == false)
+        return replaseDouble(value2) + " + " + value1;
+        else if (isComplex(value1) == false && isComplex(value2) == true)
+        return replaseDouble(value1) + " + " + value2;
+        else if (isComplex(value1) == false && isComplex(value2) == false){
+            res = replaseDouble(value1) + replaseDouble(value2);
+            return res + "";
+        }
+        else return null;
     }
-    
-    // public Addition(double value1, double value2) {
-    //     super(value1, value2);
-    // }
-
-    // @Override
-    // public double operation() {
-    //     return (value1 + value2);
-    // }
-    
 }

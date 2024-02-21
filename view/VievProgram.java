@@ -20,12 +20,12 @@ public class VievProgram implements Printer{
         
         while (true){
             System.out.println("Enter the first number: ");
-            double value1 = scanner.nextDouble();
+            String value1 = scanner.nextLine();
             System.out.println("Enter operator (+, -, *, /): ");
-            char operation = scanner.next().charAt(0);
+            char operation = scanner.nextLine().charAt(0);
             System.out.println("Enter the second number: ");
-            double value2 = scanner.nextDouble();
-            double result;
+            String value2 = scanner.nextLine();
+            String result;
             String operator;
             switch (operation){
                 case '+':

@@ -1,35 +1,41 @@
 package javaOOPFinalTest.model.operations;
 
-import javaOOPFinalTest.model.ComplexNum;
+import javaOOPFinalTest.model.ForHelpSerch;
 import javaOOPFinalTest.model.Operation;
 
-public class Division extends Operation {
+public class Division extends Operation implements ForHelpSerch {
 
-    public Division(ComplexNum value1, ComplexNum value2) {
+    public Division(String value1, String value2) {
         super(value1, value2);
     }
 
     @Override
-    public ComplexNum operation() {
-        if (value2.getReal() == 0 && value1.getImaginary() == 0) {
-            throw new RuntimeException(" Делить на ноль нельзя");
+    public String operation() {
+        double res;
+        if (replaseDouble(value2) == 0) 
+            throw new RuntimeException(" Делить на ноль нельзя ");
+
+
+        else if(isComplex(value1) == true && isComplex(value2) == true) {
+            res = replaseDouble(value1) / replaseDouble(value2);
+            return "" + res;
         }
+        else if (isComplex(value1) == true && isComplex(value2) == false){
+            res = replaseDouble(value1) / replaseDouble(value2);
+            return res + "i";
+        }
+        else if (isComplex(value1) == false && isComplex(value2) == true){
+            res = replaseDouble(value1) / replaseDouble(value2);
+            return "-" + res + "i";
+        }
+        else if (isComplex(value1) == false && isComplex(value2) == false) {
+            res = replaseDouble(value1) / replaseDouble(value2);
+            return res + "";
+        }
+        else return null;
+    } 
+}
 
-        double denominator = value2.getReal() * value2.getReal() + value2.getImaginary() * value2.getImaginary();
-        double realPart = (value1.getReal() * value2.getReal() + value1.getImaginary() * value2.getImaginary()) / denominator;
-        double imagPart = (value1.getImaginary() * value2.getReal() - value1.getReal() * value2.getImaginary()) / denominator;
-        return new ComplexNum(realPart, imagPart);
-    }
-    }
-
-    // @Override
-    // public double operation() {
-    //     if (value2 == 0) {
-    //         System.out.println(" Division is not possible ");
-    //         throw new RuntimeException(" Делить на ноль нельзя");
-    //     }
-    //     return(value1 / value2);
-    // }
 
     
     
